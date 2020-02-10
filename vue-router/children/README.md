@@ -16,7 +16,7 @@
 
     這樣一套 url 都是以 /user/** 開頭，一看就知道適用於[動態路由匹配章節](..\routerMatch\README.md)中提到的 path 定義 /user/:id 
 
-    <br`>
+    <br>
 
 * 但是可以看到 /user/:id 後面還要接 shoppingcart丶profile丶history 等子路徑，所以就是該介紹本章重點 <strong>嵌套路由</strong> 了。
 

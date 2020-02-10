@@ -8,3 +8,12 @@ new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')
+
+router.beforeEach((to, from, next) => {
+  var authorized = true
+  if(authorized){
+    next()
+  }else{
+    next('/')
+  }
+})

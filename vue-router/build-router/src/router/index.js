@@ -11,7 +11,6 @@ import UserProps from '@/components/UserProps'
 
 Vue.use(Router)
 
-
 export default new Router({
     routes: [
         {

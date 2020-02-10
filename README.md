@@ -41,3 +41,13 @@
 * [路由 redirect 與 alias](./vue-router/redirectAndAlias)
 
 * [路由 component 傳遞參數](./vue-router/passValue)
+
+* [路由 history 模式](./vue-router/history)
+
+* [保護 router （安全性）](./vue-router/security/README.md)
+
+<br>
+
+### 三. 附件
+
+* [axios 封裝](./utils/axios/Api.js)
