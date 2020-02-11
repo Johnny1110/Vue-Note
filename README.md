@@ -44,7 +44,7 @@
 
 * [路由 history 模式](./vue-router/history)
 
-* [保護 router （安全性）](./vue-router/security/README.md)
+* [保護 router （安全性）](./vue-router/security)
 
 <br>
 

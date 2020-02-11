@@ -8,6 +8,7 @@ import Profile from '@/components/Profile'
 import AComponent from '@/components/AComponent'
 import BComponent from '@/components/BComponent'
 import UserProps from '@/components/UserProps'
+import PrivatePage from '@/components/PrivatePage'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
             path: '/userProps/:id',
             component: UserProps,
             props: true
+        },
+
+        {
+            path: '/private',
+            component: PrivatePage,
         }
 
     ]
