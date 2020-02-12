@@ -41,3 +41,13 @@
     ```
     <br>
 
+## import 現有專案
+
+* 一般上傳到 github 的專案是不會帶有 node_modules 的，但是需要的依賴資訊都寫在 package.json 裡面了，所以當 pull 下來專案之後，直接 cd 到專案資料夾下，執行以下片段 : 
+
+    ```bash
+    npm install
+    ```
+
+    這樣就 npm 就會自動把需要用到的套件下載到 node_modules 裡面了。
+
