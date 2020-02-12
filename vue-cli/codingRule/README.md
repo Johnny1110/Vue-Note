@@ -148,6 +148,28 @@
 
 在不使用 vue-cli 之前，寫一個 component 真的很麻煩，compoent 要有 template 區塊，還要定義自己的方法。跟 main.js 擠在一起又太亂，分離出去變成單獨 .js 檔的話， template 寫在 js 裡 IDE 又沒有很好的格式支援，所以就有的 vue-cli 專用的文件格式 : .vue
 
+<br>
+
+.vue 文件基本格式主要有 3 個區塊，如下 :
+
+```html
+<template>
+    <!-- 1. HTML 模板 -->
+</template>
+
+<script>
+    // 2. js 腳本
+</script>
+
+<style>
+    /* 3. template 使用的 css 樣式 */
+</style>
+```
+
+<strong>注意 ! </strong> :　`<template>` 下一定只可以有一個主要 `<div>` 標籤，不可以出現 2 個。
+
+<br>
+
 這邊用 .vue 寫一個 component 來看看 : 
 
 * Counter.vue
@@ -191,8 +213,6 @@
     /* 自定義 css 樣式 */
     </style>
     ```
-
-<strong>注意 ! </strong> :　`<template>` 下一定只可以有一個主要 `<div>` tag，不可以有 2 個。
 
 <br>
 
