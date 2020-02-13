@@ -11,6 +11,16 @@
 * 確認 node.js 安裝完成後，直接開啟終端機執行以下片段 : 
 
     ```bash
+    npm install -g @vue/cli
+    ```
+    
+    這個是 vue 3 版的腳手架（大陸翻譯），一般情況下安裝好後直接使用　`vue create project-name` 就可以直接快速開專案了，
+    但是 vue 3 版較於 vue 2 版簡化了專案結構，看個人喜好而定，個人比較喜歡更周全嚴謹一點，所以這邊用 vue 2 版的 vue-init 
+    套件建立專案。
+    
+    接下來再安裝 vue-init 套件 : 
+
+    ```bash
     npm install -g @vue/cli-init
     ```
 
