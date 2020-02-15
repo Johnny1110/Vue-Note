@@ -1,22 +1,24 @@
 <template>
   <div>
-    <div>{{ msg}}</div>
-
-    <div v-html="msg"></div>
+    <label>選甚麼呢 ?</label>
+    <select v-model="selected">
+      <option v-for="option in options" :key="option.value" :value="option.value">{{ option.text }}</option>
+    </select>
+    <h3>{{ selected }}</h3>
   </div>
 </template>
 
-<script>
+    <script>
 export default {
-  data () {
+  data() {
     return {
-      msg: '<h1 style="color: red;">Hello World</h1>'
-    }
+      selected: null,
+      options: [
+        { text: "One", value: "A" },
+        { text: "Two", value: "B" },
+        { text: "Three", value: "C" }
+      ]
+    };
   }
-
-}
+};
 </script>
-
-<style>
-/* 自定義 css 樣式 */
-</style>

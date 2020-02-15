@@ -41,7 +41,13 @@
 
 ### 三. Vue 模板
 
-* [文本輸出 vs HTML 輸出](./vue-template/basics/README.md)
+* [文本輸出 vs HTML 輸出](./vue-template/basics)
+
+* [模板標籤指令 : if、bind、on、for](./vue-template/directives/README.md)
+
+* [v-model](./vue-template/v-model/README.md)
+
+* [模板語言的 JS 表達式](./vue-template/jsExpress)
 
 <br>
 
