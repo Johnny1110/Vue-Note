@@ -1,10 +1,18 @@
 <template>
   <div>
-    <label>選甚麼呢 ?</label>
-    <select v-model="selected">
-      <option v-for="option in options" :key="option.value" :value="option.value">{{ option.text }}</option>
-    </select>
-    <h3>{{ selected }}</h3>
+    <div>
+      <label>姓名</label>
+      <input type="text" v-model="name" />
+    </div>
+
+    <div>
+      <label>課程</label>
+      <input type="text" v-model="course" />
+    </div>
+
+    <div>{{message}}</div>
+
+    <div>{{sayHello()}}</div>
   </div>
 </template>
 
@@ -12,13 +20,20 @@
 export default {
   data() {
     return {
-      selected: null,
-      options: [
-        { text: "One", value: "A" },
-        { text: "Two", value: "B" },
-        { text: "Three", value: "C" }
-      ]
+      name: "",
+      course: ""
     };
+  },
+  methods:{
+    sayHello(){
+      return "hello " + this.name
+    }
+  },
+  computed: {
+    message() {
+      var msg = `welcome to ${this.course} Mr/Ms. ${this.name}`;
+      return msg;
+    }
   }
 };
 </script>

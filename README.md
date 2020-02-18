@@ -33,6 +33,10 @@
 
 ### 二. Vue 物件基礎
 
+* [Vue computed](./vue-basic/vueComputed/README.md)
+
+* [Vue watch](./vue-basic/vueWatch/README.md)
+
 * [物件屬性和 watch 方法](./vue-basic/attrAndWatch.js)
 
 * [Vue 生命週期](./vue-basic/lifecycle.js)
@@ -49,9 +53,10 @@
 
 * [模板語言的 JS 表達式](./vue-template/jsExpress)
 
+
 <br>
 
-### 四. Vue 路由
+### 五. Vue 路由
 
 * [安裝 vue-router](./vue-router/install.md)
 
@@ -73,6 +78,6 @@
 
 <br>
 
-### 三. 附件
+### 六. 附件
 
 * [axios 封裝](./utils/axios/Api.js)
