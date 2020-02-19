@@ -1,39 +1,41 @@
 <template>
   <div>
     <div>
-      <label>姓名</label>
-      <input type="text" v-model="name" />
+      <label>姓氏</label>
+      <input type="text" v-model="lastname" />
     </div>
 
     <div>
-      <label>課程</label>
-      <input type="text" v-model="course" />
+      <label>名稱</label>
+      <input type="text" v-model="firstname" />
     </div>
 
-    <div>{{message}}</div>
-
-    <div>{{sayHello()}}</div>
+    <div>
+      <label>全名</label>
+      <input type="text" v-model="fullname" />
+    </div>
   </div>
 </template>
 
-    <script>
+<script>
 export default {
-  data() {
+  data () {
     return {
-      name: "",
-      course: ""
-    };
-  },
-  methods:{
-    sayHello(){
-      return "hello " + this.name
+      firstname: '',
+      lastname: ''
     }
   },
   computed: {
-    message() {
-      var msg = `welcome to ${this.course} Mr/Ms. ${this.name}`;
-      return msg;
+    fullname: {
+      get () {
+        return `${this.firstname} ${this.lastname}`
+      },
+      set (val) {
+        var names = val.split(' ')
+        this.firstname = names[0]
+        this.lastname = names[names.length - 1]
+      }
     }
   }
-};
+}
 </script>

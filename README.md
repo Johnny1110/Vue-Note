@@ -4,11 +4,7 @@
 
 * 此筆記紀錄我使用 vue.js 的一些功能，東西太多不專門記一下不行了...
 
-* 基本上都是以 vue-cli 實作，cli 部分這邊就不詳述了。
-
-* 每一個資料夾都是單獨一個小專案，裡面有各自的 package.json，要執行測試時，需要先下指令 `npm install` 將依賴載入專案環境。
-
-* 需要執行時，使用 node 執行，或打開 npm serve。
+* 基本上都是以 vue-cli 實作。
 
 <br>
 
@@ -37,9 +33,9 @@
 
 * [Vue watch](./vue-basic/vueWatch/README.md)
 
-* [物件屬性和 watch 方法](./vue-basic/attrAndWatch.js)
+* [物件屬性和 watch 方法（舊）](./vue-basic/attrAndWatch.js)
 
-* [Vue 生命週期](./vue-basic/lifecycle.js)
+* [Vue 生命週期（舊）](./vue-basic/lifecycle.js)
 
 <br>
 
