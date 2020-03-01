@@ -52,7 +52,7 @@
 
 <br>
 
-### 五. Vue 路由
+### 四. Vue 路由
 
 * [安裝 vue-router](./vue-router/install.md)
 
@@ -71,6 +71,13 @@
 * [路由 history 模式](./vue-router/history)
 
 * [保護 router （安全性）](./vue-router/security)
+
+* [一個合理的架構應該是 ? ](./vue-router/structure)
+
+<br>
+
+### 五. Vuex
+
 
 <br>
 
