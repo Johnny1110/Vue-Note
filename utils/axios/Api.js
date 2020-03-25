@@ -1,76 +1,58 @@
 import axios from 'axios'
+import {getAuthorization} from '../auth/AuthStore'
 
-let base = 'http://localhost:3000'; // 這裡設定網站的 base-url  
+let baseUrl = 'http://localhost:8080'; // 這裡設定網站的 base-url
 
 export const postRequest = (url, params) => {
-    return axios({
-        method: 'post',
-        url: `${base}${url}`,
-        data: params,
-        transformRequest: [function (data) {
-            // Do whatever you want to transform the data
-            let ret = ''
-            for (let it in data) {
-                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-            }
-            return ret
-        }],
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    });
-}
-
-export const uploadFileRequest = (url, params) => {
-    return axios({
-        method: 'post',
-        url: `${base}${url}`,
-        data: params,
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-    });
-}
-
-export const putRequest = (url, params) => {
-    return axios({
-        method: 'put',
-        url: `${base}${url}`,
-        data: params,
-        transformRequest: [function (data) {
-            let ret = ''
-            for (let it in data) {
-                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-            }
-            return ret
-        }],
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    });
-}
-
-export const deleteRequest = (url) => {
-    return axios({
-        method: 'delete',
-        url: `${base}${url}`
-    });
-}
-
-export const getRequest = (url,params) => {
-    return axios({
-        method: 'get',
-        data:params,
-        transformRequest: [function (data) {
-            let ret = ''
-            for (let it in data) {
-                ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-            }
-            return ret
-        }],
+    const userRequest = axios.create({
+        baseURL: baseUrl,
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': getAuthorization(),
         },
-        url: `${base}${url}`
     });
-}
+    return userRequest.post(url, params)
+};
+
+export const uploadFileRequest = (url, params) => {
+    const userRequest = axios.create({
+        baseURL: baseUrl,
+        headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': getAuthorization()
+        },
+    });
+    return userRequest.post(url, params)
+};
+
+export const putRequest = (url, params) => {
+    const userRequest = axios.create({
+        baseURL: baseUrl,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': getAuthorization()
+        },
+    });
+    return userRequest.put(url, params)
+};
+
+export const deleteRequest = (url) => {
+    const userRequest = axios.create({
+        baseURL: baseUrl,
+        headers: {
+            'Authorization': getAuthorization()
+        },
+    });
+    return userRequest.delete(url)
+};
+
+export const getRequest = (url, params) => {
+    const userRequest = axios.create({
+        baseURL: baseUrl,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': getAuthorization(),
+        },
+    });
+    return userRequest.get(url, params)
+};

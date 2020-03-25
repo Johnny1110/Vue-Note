@@ -78,6 +78,10 @@
 
 ### 五. Vuex
 
+* [Vuex 介紹與安裝](./vuex/intro/README.md)
+
+* [寫一個 Hello World 吧（Store.state） !](./vuex/basic/README.md)
+
 
 <br>
 
