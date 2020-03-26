@@ -82,6 +82,10 @@
 
 * [寫一個 Hello World 吧（Store.state） !](./vuex/basic/README.md)
 
+* [改變狀態（Store.mutations）](./vuex/mutations/README.md)
+
+* [更好的設計與使用 mutations](./vuex/mutations-improve/README.md)
+
 
 <br>
 

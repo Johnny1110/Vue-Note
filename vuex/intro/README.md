@@ -23,6 +23,8 @@
 
 Vuex 就是專門為 Vue.js 開發的狀態管理模式。他集中管理所有 VUe Components 的狀態。他可以保證每一個 Vue Components 所共享的資料都是 __單例（singleton）__。假設有 A B 兩個 Components，當 A 改變 Vuex Store 中的一個 state， B 可以馬上知道狀態改變並取得及時數值。
 
+__注意 :__ Vuex 中保存的狀態在瀏覽器 refresh 頁面時就會重置，但是在 `vue-router` 切換路徑時會保有 state。
+
 <br>
 <br>
 
