@@ -86,9 +86,20 @@
 
 * [更好的設計與使用 mutations](./vuex/mutations-improve/README.md)
 
+* [使用 getters 取得 state 資訊 （Store.getters）](./vuex/getters/README.md)
+
+* [更好的設計與使用 getters](./vuex/getters-improve/README.md)
+
+* [非同步的操作 （Store.actions）](./vuex/actions/README.md)
+
+* [更好的設計與使用 actions](./vuex/actions-improve/README.md)
+
+
 
 <br>
 
 ### 六. 附件
 
 * [axios 封裝](./utils/axios/Api.js)
+
+* [Auth localStorage 封裝](./utils/auth/AuthStore.js)
