@@ -2,11 +2,14 @@
     <div>
         <h1>Test Store Page</h1>
         {{msg}}
-        <input type="text" v-model="newMsg" v-on:keypress.enter="changeMsg"/>
+        <input type="text" v-model="newMsg"/>
+        <button @click="future(newMsg)">future</button>
     </div>
 </template>
 
 <script>
+    import {mapActions} from 'vuex'
+
     export default {
         data () {
             return {
@@ -15,9 +18,9 @@
         },
 
         methods: {
-            changeMsg () {
-                this.$store.dispatch("changeMsg", this.newMsg)
-            }
+            ...mapActions([
+                "future"
+            ]),
         },
 
         computed: {

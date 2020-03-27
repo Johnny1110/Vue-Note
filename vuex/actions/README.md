@@ -136,6 +136,21 @@ Action 類似於 mutation，不同在於：
 <br>
 <br>
 
+* 前面開頭提到了，actions 是支援非同步處理的，這是 mutations 所做不到的，也是 actions 存在的理由。這邊給一個簡單的小例子示範非同步，下一個章節會用之前我在專案中實現的一個 login 功能實現。
+
+    ```js
+    actions: {
+        setMsgAsync ({commit}) {
+            setTimeout(() => {
+                commit('setMsg')
+            }, 1000)
+        }
+    }
+    ```
+
+<br>
+<br>
+
 * 實際運用，舉一個官方給出的購物車例子 :
 
     ```js
