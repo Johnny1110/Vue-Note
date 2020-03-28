@@ -3,12 +3,12 @@
         <h1>Test Store Page</h1>
         {{msg}}
         <input type="text" v-model="newMsg"/>
-        <button @click="future(newMsg)">future</button>
+        <button @click="changeMsg(newMsg)">Change Msg</button>
     </div>
 </template>
 
 <script>
-    import {mapActions} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex'
 
     export default {
         data () {
@@ -18,15 +18,15 @@
         },
 
         methods: {
-            ...mapActions([
-                "future"
-            ]),
+            ...mapActions({
+                changeMsg: "changeMsg"
+            }),
         },
 
         computed: {
-            msg () {
-                return this.$store.state.msg
-            }
+            ...mapGetters({
+                msg: "currentMsg"
+            })
         }
     }
 </script>

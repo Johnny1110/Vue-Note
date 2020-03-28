@@ -1,27 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import state from "./state";
+import mutations from "./mutations";
+import getters from "./getters";
+import actions from "./actions";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    msg: 'Hello World',
-  },
-
-  mutations: {
-    changeMsg: (state, newMsg) => {
-      state.msg = newMsg
-    }
-  },
-
-  actions: {
-    future: ({commit}, newMsg) => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          commit("changeMsg", newMsg);
-          resolve()
-        }, 2000)
-      })
-    }
-  }
+  state,
+  mutations,
+  getters,
+  actions
 });

@@ -94,7 +94,7 @@
 
 * [更好的設計與使用 actions](./vuex/actions-improve/README.md)
 
-* [進入模組化前暫時總結](./vuex/befure-modules/README.md)
+* [進入模組化前暫時總結](./vuex/before-modules/README.md)
 
 
 
