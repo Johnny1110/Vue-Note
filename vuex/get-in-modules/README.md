@@ -10,6 +10,21 @@
 
 <br>
 
+## 目錄
+
+1. [什麼是模組化](#mdules)
+
+1. [配置 VUEX 模組](#vuexconf)
+
+    * [ShoppingCart 模組](#shoppingcart)
+
+    * [Member 模組](#member)
+
+<br>
+<br>
+
+<div id="mdules">
+
 ## 什麼是模組化
 
 首先我們要搞清楚什麼是模組化，為什麼需要模組化。我們以開發中遇到的問題為例 :
@@ -30,6 +45,8 @@
 <br>
 <br>
 <br>
+
+<div id="vuexconf">
 
 ## 配置 VUEX 模組
 
@@ -72,6 +89,208 @@
 <br>
 <br>
 
+<div id="shoppingcart">
+
 * __ShoppingCart__ 模組
 
-    我們的 shoppingCart 以最簡為例，只需要陣列形式來保存 __產品編號（itemId）__、__數量（count）__、__單價（price）__即可。
+    我們的 shoppingCart 以最簡為例，只需要陣列形式來保存 __產品編號（itemId）__、__數量（count）__、__單價（price）__　即可。
+
+    <br>
+
+    先來看看 shoppingCart 模組建構內容吧 :
+
+    ```js
+    const shoppingCart = {
+        state: {
+            cartList:[] // 用來存放品項的陣列
+        },
+
+        mutations: {
+            addItemToCart (state, item) {  // 可以通過 commit 一次新增一個 item
+                state.cartList.push(item)
+            }
+        },
+
+        getters: {
+            cartList: (state) => state.cartList
+        },
+
+        actions: {
+            addNewItem (context, item) {
+                context.commit("addItemToCart", item)
+            }
+        }
+    }
+    ```
+
+    <br>
+
+    其實目前看起來都還可以吧，沒什麼問題。配置好後我們來看一下如何在 Components 中使用 :
+
+    <br>
+
+    編輯文件 src/views/TestStore.vue 如下 :
+
+    ```html
+    <template>
+        <div>
+            <h1>Test Store Page</h1>
+
+            <hr>
+            <h3>ShoppingCart 模組測試</h3>
+            <form>
+                <div>
+                    <label>產品編號</label>
+                    <input type="text" v-model="item.productId">
+                    <label>數量</label>
+                    <input type="number" v-model.number="item.count">
+                    <label>單價</label>
+                    <input type="number" v-model.number="item.price">
+                </div>
+                <br>
+                <div>
+                    <button type="button" @click="addItem(item)">送出</button>
+                </div>
+            </form>
+            <br>
+            <div class="cart">
+                <label>購物車</label>
+                <ul v-for="(i, index) in cartList" :key="index">
+                    <li>產品 ID: {{i.productId}}  數量: {{i.count}}  單價: {{i.price}}</li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        import {mapGetters, mapActions} from 'vuex'
+        export default {
+            data () {
+                return {
+                    item: {
+                        productId: '',
+                        count: 0,
+                        price: 0
+                    }
+                }
+            },
+
+            methods: {
+                ...mapActions({
+                    addItem: "addNewItem"
+                })
+            },
+
+            computed: {
+                ...mapGetters({
+                    cartList: "cartList"
+                })
+            }
+        }
+    </script>
+
+    <style>
+        .cart {
+            background-color: #42b983;
+        }
+    </style>
+    ```
+
+    其實在 Components 中的使用上沒有甚麼特別的，跟之前提到的一樣。看一下實際畫面比較好理解 :
+
+    <br>
+
+    ![1](./imgs/1.jpg)
+
+    目前為止我們已經完成了 ShoppingCart 的部分。
+
+    <br>
+    <br>
+
+<div id="member">
+
+* __Member__ 模組
+
+    我們的會員模組一樣最簡為例，只要有姓名、年齡、地址這樣就好。
+
+    ```js
+    const member = {
+        state: {
+            userInfo: {
+                name: 'Johnny',
+                age: '21',
+                addr: 'Taipei'
+            }
+        },
+
+        mutations: {
+            setUserInfo (state, userInfo) {
+                state.userInfo = userInfo
+            }
+        },
+
+        actions: {
+            updateUserInfo (context, {name, age, addr}) {
+                context.commit("setUserInfo", {name, age, addr})
+            }
+        },
+
+        getters: {
+            userInfo: (state) => state.userInfo
+        }
+    }
+    ```
+
+    <br>
+
+    我們再來去 Components 裡面去測試看看吧 : 
+
+    ```html
+    <template>
+        <div>
+            <h1>Test Store Page</h1>
+
+            <hr>
+            <h3>Member 模組測試</h3>
+            <div class="update">
+                <label>個人資料</label>
+                <p><label>姓名 :</label> <input type="text" v-model="userInfo.name"></p>
+                <p><label>年齡 :</label> <input type="text" v-model="userInfo.age"></p>
+                <p><label>地址 :</label> <input type="text" v-model="userInfo.addr"></p>
+                <button @click="updateUserInfo(userInfo)">更新</button>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        import {mapGetters, mapActions} from 'vuex'
+        export default {
+            methods: {
+                ...mapActions({
+                    updateUserInfo: "updateUserInfo"
+                })
+            },
+            computed: {
+                ...mapGetters({
+                    userInfo: "userInfo"
+                })
+            }
+        }
+    </script>
+
+    <style>
+        .update {
+            background-color: greenyellow;
+        }
+    </style>
+    ```
+
+    <br>
+
+    實際畫面如下 : 
+
+    ![2](./imgs/2.jpg)
+
+    可以看到，我在這邊把年齡從 21 改到 23 之後，Vuex 的狀態確實也跟著改變了。
+
+    code 有點多，但實際上沒有甚麼難點，都算正常。

@@ -6,8 +6,8 @@ Vue.use(Vuex);
 const shoppingCart = {
   state: {
     cartList:[
-      {itemId: 1, count: 24, price: 40},
-      {itemId: 3, count: 2, price: 150},
+      {productId: 1, count: 24, price: 40},
+      {productId: 3, count: 2, price: 150},
     ]
   },
 
@@ -26,14 +26,29 @@ const shoppingCart = {
       context.commit("addItemToCart", item)
     }
   }
-  
 }
 
 const member = {
-  state: {},
-  mutations: {},
-  actions: {},
-  getters: {}
+  state: {
+    userInfo: {
+      name: 'Johnny',
+      age: '21',
+      addr: 'Taipei'
+    }
+  },
+  mutations: {
+    setUserInfo (state, userInfo) {
+      state.userInfo = userInfo
+    }
+  },
+  actions: {
+    updateUserInfo (context, {name, age, addr}) {
+      context.commit("setUserInfo", {name, age, addr})
+    }
+  },
+  getters: {
+    userInfo: (state) => state.userInfo
+  }
 }
 
 export default new Vuex.Store({
