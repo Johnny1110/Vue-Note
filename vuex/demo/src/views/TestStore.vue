@@ -1,31 +1,21 @@
 <template>
     <div>
         <h1>Test Store Page</h1>
-        {{msg}}
-        <input type="text" v-model="newMsg"/>
-        <button @click="changeMsg(newMsg)">Change Msg</button>
+
+        <hr>
+
+        <h3>ShoppingCart 模組測試</h3>
+        <form></form>
+        {{cartList}}
     </div>
 </template>
 
 <script>
-    import {mapActions, mapGetters} from 'vuex'
-
+    import {mapGetters} from 'vuex'
     export default {
-        data () {
-            return {
-                newMsg: ''
-            }
-        },
-
-        methods: {
-            ...mapActions({
-                changeMsg: "changeMsg"
-            }),
-        },
-
         computed: {
             ...mapGetters({
-                msg: "currentMsg"
+                cartList: "cartList"
             })
         }
     }

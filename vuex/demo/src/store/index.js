@@ -1,15 +1,44 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import state from "./state";
-import mutations from "./mutations";
-import getters from "./getters";
-import actions from "./actions";
 
 Vue.use(Vuex);
 
+const shoppingCart = {
+  state: {
+    cartList:[
+      {itemId: 1, count: 24, price: 40},
+      {itemId: 3, count: 2, price: 150},
+    ]
+  },
+
+  mutations: {
+    addItemToCart (state, item) {
+      state.cartList.push(item)
+    }
+  },
+
+  getters: {
+    cartList: (state) => state.cartList
+  },
+
+  actions: {
+    addNewItem (context, item) {
+      context.commit("addItemToCart", item)
+    }
+  }
+  
+}
+
+const member = {
+  state: {},
+  mutations: {},
+  actions: {},
+  getters: {}
+}
+
 export default new Vuex.Store({
-  state,
-  mutations,
-  getters,
-  actions
+  modules: {
+    shoppingCart: shoppingCart,
+    member: member
+  }
 });

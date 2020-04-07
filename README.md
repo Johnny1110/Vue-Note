@@ -96,6 +96,8 @@
 
 * [進入模組化前暫時總結](./vuex/before-modules/README.md)
 
+* [正式進入模組化](./vuex/get-in-modules/README.md)
+
 
 
 <br>
