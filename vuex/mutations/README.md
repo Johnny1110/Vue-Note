@@ -11,7 +11,7 @@
 * 要改變 `Store.state`，不是簡單直白的 : 
 
     ```js
-    this.$state.state.msg = 'Hey You';
+    this.$store.state.msg = 'Hey You';
     ```
 
     而是要向 `Store` 以提交 commit 的方式來更新 state 的值。為甚麼 Vuex 要這樣設計呢，原因就是這樣一來 Vuex 就可以追蹤 Store 狀態改變的這個事件。通過追蹤 commit 事件，Vuex 在背後可以幫我們做很多事情。
