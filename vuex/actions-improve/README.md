@@ -11,7 +11,7 @@
 * 在上一個章節中，我們示範了如何製作與使用基本的 actions。在 components 中 actions 的使用方式如下 : 
 
     ```js
-    this.$store.dispatch("changeMsg", "new msg")
+    this.$store.dispatch("changeMsg", newMsg)
     ```
 
     當我們要大量使用 actions 時，可以使用 `mapActions` 輔助函式將 components 的 methods 映射為 `store.dispatch` 來幫我們快速開發。
