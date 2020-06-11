@@ -158,7 +158,7 @@ Action 類似於 mutation，不同在於：
         checkout ({ commit, state }, products) {
             // 備份購物車
             const savedCartItems = [...state.cart.added]
-            // 發出結帳請求，然後樂端的直接清空購物車
+            // 發出結帳請求，然後樂觀的直接清空購物車
             commit(types.CHECKOUT_REQUEST)
             // 購物 API 接受一個成功以及一個失敗的回調函式
             shop.buyProducts(
